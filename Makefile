@@ -30,8 +30,8 @@ sercal : sercal.cpp date.o gregor.o dow.o
 generate_tests : generate_tests.cpp date.o gregor.o dow.o
 	$(GPP) generate_tests.cpp date.o gregor.o dow.o -o generate_tests
 
-date.o : date.cpp date.h
-	$(GPP) date.cpp -c
+date.o : lunar/date.cpp lunar/date.h
+	$(GPP) lunar/date.cpp -c
 
 gregor.o : gregor.c sdncal.h
 	$(GPP) gregor.c -c
