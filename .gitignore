@@ -1,0 +1,11 @@
+sdncal*
+*.o
+gregor.c
+dow.c
+
+# Outputs
+mydate
+generate_cal
+generate_tests
+sercal
+
