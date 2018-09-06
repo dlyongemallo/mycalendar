@@ -8,8 +8,8 @@
 #include<ctime>
 #include<cstring>
 
-#include"watdefs.h"
-#include"date.h"
+#include"lunar/watdefs.h"
+#include"lunar/date.h"
 #include"sdncal.h"
 
 using namespace std;

@@ -38,3 +38,7 @@ gregor.o : gregor.c sdncal.h
 
 dow.o : dow.c sdncal.h
 	$(GPP) dow.c -c
+
+sdncal :
+	wget http://www.scottlee.com/sdncal20.zip
+	unzip sdncal20.zip sdncal.h gregor.c dow.c
