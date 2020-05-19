@@ -7,6 +7,7 @@
 #include<cstdlib>
 #include<ctime>
 #include<cstring>
+#include<math.h>
 
 #include"lunar/watdefs.h"
 #include"lunar/date.h"
@@ -81,15 +82,29 @@ int main(int argc, char** argv)
     long p_year; int p_month, p_day;
     day_to_dmy(jdn, &p_day, &p_month, &p_year, CALENDAR_PERSIAN);
 
+    // Compute factors of 3.
+    int factors_of_3 = 0;
+    long int dividend = serial_day;
+    while( dividend % 3 == 0) {
+        dividend /= 3;
+        factors_of_3++;
+    }
+
     // Output the results.
     // cout << serial_day << "\t" << asctime(tstruct);
     if( status ) {
-        cout << setfill('0') << serial_day << " " << DayNameShort[dow] << " ";
+        cout << setfill('0') << serial_day;
+        for (int i = 0; i < factors_of_3; i++) {
+            cout << "*";
+        }
+        cout << " " << DayNameShort[dow] << " ";
         cout << setw(4) << g_year << "-" << setw(2) << g_month << "-" << setw(2) << g_day << " ";
-        cout << setw(2) << tstruct->tm_hour << ":" << setw(2) << tstruct->tm_min;
+        cout << setw(2) << tstruct->tm_hour << ":" << setw(4) << tstruct->tm_min;
     } else {
         cout << serial_day << " - " << DayNameLong[dow] << ", " << MonthNameLong[g_month] << " " << g_day << ", " << g_year << endl;
         cout << "        " << PersianDayName[dow] << ", " << p_day << " " << PersianMonthName[p_month] << " " << p_year << endl;
+        if ( factors_of_3 != 0) {
+            cout << "        (Repeat from " << serial_day - 2 * pow(3, factors_of_3) << ")" << endl;
+        }
     }
 }
-
