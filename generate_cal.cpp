@@ -53,7 +53,7 @@ void print_header(void)
     cout << "\\usepackage{setspace}" << endl;
     //cout << "\\title{Calendar}" << endl;
     //cout << "\\date{}" << endl;
-    cout << "\\begin{document} " << endl;
+    cout << "\\begin{document}" << endl;
     cout << "\\setfarsi   % set the language" << endl;
     cout << "\\novocalize % no short vowel marks" << endl;
     cout << "\\transfalse % no transliteration" << endl;
@@ -88,9 +88,8 @@ void print_footer(void)
 int main(int, char**)
 {
     const long int day_zero = 2443309;
-    //const int start_day = 10806; // add 56 per page
-    const int start_day = 10648; // add 56 per page
-    const int end_day = start_day + 55;
+    const int start_day = 15685; // add 49 per page
+    const int end_day = start_day + 48;
 
     // Begin LaTeX document.
     print_header();

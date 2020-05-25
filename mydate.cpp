@@ -99,12 +99,22 @@ int main(int argc, char** argv)
         }
         cout << " " << DayNameShort[dow] << " ";
         cout << setw(4) << g_year << "-" << setw(2) << g_month << "-" << setw(2) << g_day << " ";
-        cout << setw(2) << tstruct->tm_hour << ":" << setw(4) << tstruct->tm_min;
+        cout << setw(2) << tstruct->tm_hour << ":" << setw(2) << tstruct->tm_min;
     } else {
         cout << serial_day << " - " << DayNameLong[dow] << ", " << MonthNameLong[g_month] << " " << g_day << ", " << g_year << endl;
         cout << "        " << PersianDayName[dow] << ", " << p_day << " " << PersianMonthName[p_month] << " " << p_year << endl;
-        if ( factors_of_3 != 0) {
-            cout << "        (Repeat from " << serial_day - 2 * pow(3, factors_of_3) << ")" << endl;
+        long int repeat_from_day = serial_day - 2 * pow(3, factors_of_3);
+        if( factors_of_3 != 0 ) {
+            int num_stars = factors_of_3;
+            for (int i = 0; i < 8; i++) {
+              if (num_stars > 0) {
+                  cout << "*";
+                  num_stars--;
+              } else {
+                  cout << " ";
+              }
+            }
+            cout << "Repeat from " << repeat_from_day << endl;
         }
     }
 }
