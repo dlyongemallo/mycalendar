@@ -4,7 +4,4 @@ Utilities for printing my personal calendar. Not useful to anyone except for peo
 
 Requires:
 * http://www.scottlee.com/sdncal20.zip
- +
 * https://github.com/Bill-Gray/lunar/
- + date.cpp
- + date.h
